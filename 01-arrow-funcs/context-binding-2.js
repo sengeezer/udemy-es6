@@ -4,6 +4,7 @@ const Entity = function( name, delay ) {
     this.delay = delay;
 };
 
+// again, default context required, don't want to bind to external context
 Entity.prototype.greet = function() {
     setTimeout(() => {
         console.log( 'Hi, I am ' + this.name );
