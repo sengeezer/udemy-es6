@@ -32,10 +32,14 @@ let { lessons: [
 console.log(first, second, third, fourth, fifth, sixth, seventh, eighth);
 
 // function args
-function f(l1, l2) {
+try {
+  function f(l1, l2) {
 
+  }
+
+  f(r1, r2);
+
+  [l1, l2] = [r1, r2];
+} catch(err) {
+  console.log('function args');
 }
-
-f(r1, r2);
-
-[l1, l2] = [r1, r2];

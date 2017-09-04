@@ -18,16 +18,16 @@ function fib(n) {
     return n;
   }
   for (let fibIndex = 1; fibIndex < n; ++fibIndex) {
-      // fibCurrent += fibLast;
-      // fibLast = fibCurrent;
+      fibCurrent += fibLast;
+      fibLast = fibCurrent;
 
-      fibCurrent += fibLast = fibCurrent;
+      // fibCurrent += fibLast = fibCurrent;
   }
 
   return fibCurrent;
 }
 
-console.log(fib(5));
+console.log(fib(3));
 
 // 3
 let node = {
@@ -42,3 +42,5 @@ let {
   loft : {},
   right : val
 } = node;
+
+console.log(node);
