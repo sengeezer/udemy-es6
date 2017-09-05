@@ -38,9 +38,29 @@ let node = {
   right: 5
 };
 
+/*
 let {
   loft : {},
   right : val
 } = node;
-
+*/
 console.log(node);
+
+// 4
+let x = { A: [ 't', 'e', 's', 't' ] };
+
+let { A: [one, two]} = x;
+
+console.log(one, two);
+
+// 5
+let config = {
+    chartType: 0,
+    bullColor: 'green',
+    bearColor: 'red',
+    days: 30
+};
+
+function drawChart(data, cfg = config) {
+    // do not implement the function body
+}
