@@ -21,3 +21,18 @@ console.log('100 random numbers:', sumArgs(...arr));
 
 // can use multiple in the same parameter list
 console.log('100 random numbers, twice+:', sumArgs(...arr, ...arr, 100));
+
+let spreadingStrings = 'Spreading strings';
+
+console.log([...spreadingStrings]);
+
+// Destructuring with spread op
+let itsgood = 'it\'s good'.split('');
+let [,,,,,...good] = itsgood;
+
+console.log(good);
+
+// remaining elements of an array
+[,...A] = [1, 2, 3, 4];
+
+console.log(A);
