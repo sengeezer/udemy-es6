@@ -16,23 +16,16 @@ let baskets = [
   }
 ];
 
-let objTempl = {
-    basketValue: 0,
-    firstName: '-'
-};
+baskets = baskets.map(el => Object.assign({
+    firstName: '-',
+    basketValue: 0
+}, el));
 
-let newBaskets = [];
-
-baskets.forEach(el => {
-  // console.log(el);
-  newBaskets.push(Object.assign({}, el, objTempl));
-  // console.log(baskets);
-});
-
-console.log(newBaskets);
+console.log(baskets);
 
 // 2
 let protObj = {
+  value: 0,
   addToBasket(value) {
     this.value += value;
   },
@@ -55,22 +48,24 @@ let myBasket = {
     { itemName: 'Gooseberry', itemPrice: 1.99 }
   ],
   addToBasket(itemName, itemPrice) {
-    super.addToBasket();
     this.items.push({ itemName, itemPrice });
+    super.addToBasket(itemPrice);
   },
   clearBasket() {
-    super.clearBasket();
     this.items = [];
+    super.clearBasket();
+  },
+  removeFromBasket(idx) {
+    if (typeof idx !== 'number' || idx < 0 || idx >= this.items.length) {
+      return false;
+    }
+
+    let removedElement = this.items.splice(idx, 1)[0];
+    super.addToBasket(removedElement.itemPrice);
   }
 };
 
 Object.setPrototypeOf(myBasket, protObj);
 
 // 4
-let myNewBasket = {
-  removeFromBasket(idx) {
-    this.items.splice(idx, 1);
-  }
-};
-
-Object.setPrototypeOf(myNewBasket, myBasket);
+// see above
